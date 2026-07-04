@@ -60,7 +60,7 @@ export const GalleryPage: React.FC = () => {
               />
               <div className="absolute inset-0 bg-brand-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <div className="text-left">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-brand-gold">Ustaads Kitchen</p>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-brand-gold">Balaji Santosh Dhaba</p>
                   <p className="font-display font-bold text-[#F6EFE3] text-lg mt-1">{photo.title}</p>
                 </div>
               </div>

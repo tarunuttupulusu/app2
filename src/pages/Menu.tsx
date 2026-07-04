@@ -6,9 +6,9 @@ import { Search, SlidersHorizontal, Star, Flame, X, ChevronLeft, ChevronRight, L
 import { SIGNATURE_DISHES } from '../utils/menuData';
 import type { Dish } from '../components/DishCard';
 
-// Ustaads restaurant page URLs on delivery platforms
-const SWIGGY_URL = 'https://www.swiggy.com/restaurants/ustaads-best-hyderabadi-restaurant-caterers-moinabad-hyderabad-848491';
-const ZOMATO_URL = 'https://www.zomato.com/hyderabad/ustaads-best-hyderabadi-restaurant-caterers-moinabad/order';
+// Balaji Santosh Dhaba restaurant page URLs on delivery platforms
+const SWIGGY_URL = 'https://www.swiggy.com/search?query=Balaji+Santosh+Family+Dhaba+Moinabad';
+const ZOMATO_URL = 'https://www.zomato.com/hyderabad/restaurants?q=Balaji+Santosh+Family+Dhaba+Moinabad';
 
 // ─── Order Platform Modal ──────────────────────────────────────────────────────
 interface OrderModalProps {
@@ -96,7 +96,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ dishName, onClose }) => {
 
           {/* WhatsApp — full width */}
           <a
-            href="https://wa.me/919063878223"
+            href="https://wa.me/919849498681"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-4 bg-[#25D366] hover:bg-[#1eb85a] text-white px-6 py-4 rounded-2xl font-bold transition-all duration-250 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-green-300/30 w-full"
@@ -112,7 +112,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ dishName, onClose }) => {
           </a>
 
           <p className="text-center text-[10px] text-brand-dark/40 font-sans pt-1">
-            Ustaads · Moinabad, Hyderabad · +91 90638 78223
+            Balaji Santosh Family Dhaba · Moinabad · +91 98494 98681
           </p>
         </div>
       </motion.div>
@@ -429,10 +429,10 @@ export const Menu: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold uppercase tracking-widest text-brand-accent">Interactive Gastronomy</span>
           <h1 className="font-display text-4xl md:text-6xl font-black text-brand-dark mt-3">
-            The Ustaads Menu
+            The Balaji Santosh Menu
           </h1>
           <p className="text-brand-dark/70 font-sans text-sm md:text-base mt-4">
-            Scroll through our award-winning selection. Click any dish to view full details and pricing.
+            Scroll through our premium pure vegetarian selection. Click any dish to view full details and order online.
           </p>
         </div>
 
@@ -442,7 +442,7 @@ export const Menu: React.FC = () => {
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-brand-dark/40" size={18} />
             <input
               type="text"
-              placeholder="Search dishes (e.g. Biryani, Butter Chicken)..."
+              placeholder="Search dishes (e.g. Paneer Butter Masala, Veg Biryani)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full bg-brand-bg border border-brand-dark/15 rounded-full pl-12 pr-6 py-3 text-sm font-sans focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all text-brand-dark placeholder-brand-dark/45"

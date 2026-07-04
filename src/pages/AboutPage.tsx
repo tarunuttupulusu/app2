@@ -8,10 +8,10 @@ export const AboutPage: React.FC = () => {
         
         {/* Editorial Page Header */}
         <div className="max-w-3xl mb-20">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-accent">Our Heritage</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-accent">Our Journey</span>
           <h1 className="font-display text-4xl md:text-7xl font-black text-brand-dark mt-4 leading-tight">
-            Crafting the Spirit <br/>
-            of Hyderabadi Hospitality
+            Pure Vegetarian <br/>
+            Indian Hospitality
           </h1>
         </div>
 
@@ -25,18 +25,18 @@ export const AboutPage: React.FC = () => {
             className="lg:col-span-6 order-2 lg:order-1"
           >
             <h2 className="font-display text-2xl md:text-4xl font-extrabold text-brand-dark mb-6">
-              The Charcoal, The Saffron, & The Ghee
+              Flavor, Quality, & Pure Vegetarian Ethics
             </h2>
             <div className="space-y-6 text-sm md:text-base text-brand-dark/75 font-sans leading-relaxed">
               <p>
-                Founded on the values of traditional hospitality, Ustaads was established to safeguard the culinary integrity of Hyderabadi cuisine. Nestled in Moinabad, our restaurant recreates the royal kitchens of the Nizams, where cooking was treated as an artistic pursuit.
+                Founded on the values of traditional Indian hospitality, Balaji Santosh Family Dhaba was established to serve high-quality, pure vegetarian cuisine to families and visitors in Aziz Nagar, Himayat Sagar Road, and the Chilkur locality.
               </p>
               <p>
-                We do not cut corners. Our signature biryanis are prepared in small batches using premium long-grain Basmati rice, layered meticulously with tender cuts of meat and hand-ground spice mixtures, and cooked over slow-burning wood charcoal.
+                We believe that great vegetarian food starts with freshness. From our signature Paneer Butter Masala to our hot, tandoor-baked Butter Naan, we prepare our dishes daily using premium ingredients and direct farm-sourced vegetables.
               </p>
               <div className="border-l-4 border-brand-accent pl-6 py-2 my-8">
                 <p className="font-display italic text-brand-dark/90 font-medium">
-                  // TODO: Client will provide brand story. We will incorporate detailed archives, historical reference nodes, and the owner's personal quote here.
+                  "Awesome food taste, friendly staff, and owner is very good and down to earth. Visited with my family, and loved the experience. There is plenty of parking space."
                 </p>
               </div>
             </div>
@@ -51,7 +51,7 @@ export const AboutPage: React.FC = () => {
           >
             <img 
               src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=800&q=80" 
-              alt="Ustaads Charcoal Dum cooking process" 
+              alt="Balaji Santosh Family Dhaba cooking process" 
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
             />
           </motion.div>
@@ -68,7 +68,7 @@ export const AboutPage: React.FC = () => {
           >
             <img 
               src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80" 
-              alt="Premium spices and ingredients at Ustaads" 
+              alt="Premium spices and ingredients at Balaji Santosh Family Dhaba" 
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
             />
           </motion.div>
@@ -85,14 +85,14 @@ export const AboutPage: React.FC = () => {
             </h2>
             <div className="space-y-6 text-sm md:text-base text-brand-dark/75 font-sans leading-relaxed">
               <p>
-                To maintain the authentic flavors, our chefs grind spice blends daily. From the fiery Mirchi Ka Salan to the sweet fragrance of the Sufiyana Veg Biryani, every ingredient has a designated purpose.
+                To maintain authentic tastes, our kitchen focuses on freshly ground spices, rich gravies, and hygienic preparations. From our comforting Daal Tadka to our sizzling Paneer 65, every dish is crafted to deliver a homely yet festive dining experience.
               </p>
               <p>
-                Our dedication extends beyond food; we prioritize environment-friendly cooking methods, inclusive workplace policies, and direct sourcing from local farmers to support our community in Hyderabad.
+                Our dedication extends beyond taste; we prioritize direct sourcing from local farmers, maintaining clean kitchen layouts, and ensuring an inviting, peaceful atmosphere located just 10 minutes from the Outer Ring Road (ORR).
               </p>
               <div className="border-l-4 border-brand-accent pl-6 py-2 my-8">
                 <p className="font-display italic text-brand-dark/90 font-medium">
-                  // TODO: Client will provide brand story. We will highlight chef background details, qualifications, and our commitment to hygiene standards.
+                  "Good family restaurant near Chilkur. All vegetarian dishes available here, serving high-quality food with generous portions."
                 </p>
               </div>
             </div>

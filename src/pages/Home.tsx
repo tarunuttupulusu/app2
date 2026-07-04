@@ -11,7 +11,6 @@ import {
   X, 
   Quote
 } from 'lucide-react';
-import { SteamEffect, FloatingSpices } from '../components/SteamEffect';
 import { DishCard } from '../components/DishCard';
 import { SIGNATURE_DISHES, SPECIAL_OFFERS, GALLERY_PHOTOS, TESTIMONIALS } from '../utils/menuData';
 
@@ -145,85 +144,55 @@ const ReviewModal: React.FC<ReviewModalProps> = ({ testimonial, onClose }) => {
 
 export const Home: React.FC = () => {
   // Featured category index
-  const [activeCategory, setActiveCategory] = useState('Dum Biryani');
+  const [activeCategory, setActiveCategory] = useState('Soups & Starters');
   // Selected review for details modal
   const [selectedReview, setSelectedReview] = useState<typeof TESTIMONIALS[0] | null>(null);
 
-  const categories = ['Dum Biryani', 'Mutton Biryani', 'Chicken Biryani', 'Butter Chicken', 'Veg Biryani', 'Rumali Roti'];
+  const categories = ['Soups & Starters', 'Main Course', 'Biryanis & Rice', 'Rotis & Breads'];
   const filteredDishes = SIGNATURE_DISHES.filter(dish => dish.category === activeCategory);
 
   return (
     <div className="relative bg-brand-bg noise-overlay min-h-screen">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden bg-brand-dark">
-        {/* Cinematic Backdrop Image */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-dark">
+        {/* Cinematic Backdrop (Video for mobile, Image for desktop) */}
         <div className="absolute inset-0 z-0">
+          {/* Desktop Background Image */}
           <img 
             src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1920&q=80" 
-            alt="Luxury Hyderabadi Dining Background" 
-            className="w-full h-full object-cover opacity-35 filter brightness-75 contrast-125"
+            alt="Balaji Santosh Family Dhaba Dining Background" 
+            className="hidden md:block w-full h-full object-cover opacity-35 filter brightness-75 contrast-125"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-transparent" />
-        </div>
 
-        {/* Floating Spices and Steam micro-animations */}
-        <SteamEffect />
-        <FloatingSpices />
-
-        {/* Hero Content */}
-        <div className="max-w-7xl mx-auto px-6 relative z-20 text-center flex flex-col items-center">
-          {/* Large Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-4xl sm:text-6xl md:text-8xl font-black text-[#F6EFE3] tracking-tight leading-[1.05] max-w-4xl"
-          >
-            Authentic Hyderabadi Flavours, <br className="hidden md:inline"/>
-            <span className="text-brand-gold italic font-serif font-light">Crafted to Perfection</span>
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="font-sans text-lg sm:text-xl text-[#F6EFE3]/80 max-w-2xl mt-8 font-medium"
-          >
-            Premium Hyderabadi Cuisine. Loved by 1,110+ Happy Customers. Experience luxury heritage recipes made with organic spices.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mt-12 w-full sm:w-auto"
-          >
-            <Link 
-              to="/menu" 
-              className="bg-brand-accent hover:bg-brand-accent/90 text-brand-bg px-8 py-4 rounded-full font-bold uppercase tracking-wider shadow-lg shadow-brand-accent/25 transition-all text-sm flex items-center justify-center space-x-2"
-            >
-              <span>Explore Menu</span>
-              <ArrowRight size={16} />
-            </Link>
-            <Link 
-              to="/menu" 
-              className="border border-[#F6EFE3]/30 hover:border-brand-gold text-[#F6EFE3] hover:text-brand-gold px-8 py-4 rounded-full font-bold uppercase tracking-wider transition-all text-sm flex items-center justify-center space-x-2"
-            >
-              <span>Order Online</span>
-            </Link>
-          </motion.div>
-          {/* Elegant scroll indicator */}
-          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-            <span className="text-[10px] font-bold text-[#F6EFE3]/50 uppercase tracking-widest mb-2">Scroll Down</span>
-            <motion.div 
-              animate={{ y: [0, 6, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5 }}
-              className="w-1.5 h-6 bg-brand-gold/60 rounded-full"
+          {/* Mobile Background Video (YouTube Short) */}
+          <div className="block md:hidden absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+            <iframe 
+              src="https://www.youtube.com/embed/VRKIM1pytu8?autoplay=1&mute=1&loop=1&playlist=VRKIM1pytu8&playsinline=1&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0"
+              title="Balaji Santosh Family Dhaba Background Video"
+              className="absolute top-1/2 left-1/2 w-[100vw] h-[177.78vw] min-h-[100vh] min-w-[56.25vh] -translate-x-1/2 -translate-y-1/2 opacity-35 filter brightness-75 contrast-125"
+              allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
+              style={{ border: 'none' }}
             />
           </div>
+
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-brand-dark/50 to-brand-dark" />
+        </div>
+
+        {/* BSD Logo — perfectly centered */}
+        <div className="relative z-20 flex items-center justify-center w-full h-full">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col items-center justify-center"
+          >
+            <img
+              src="/bsd-logo.png"
+              alt="Balaji Santosh Dhaba Logo"
+              className="w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80 object-contain drop-shadow-[0_0_40px_rgba(212,175,55,0.5)]"
+            />
+          </motion.div>
         </div>
       </section>
 
@@ -232,10 +201,10 @@ export const Home: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold uppercase tracking-widest text-brand-accent">Signature Selection</span>
           <h2 className="font-display text-3xl md:text-5xl font-black text-brand-dark mt-3">
-            Handcrafted Hyderabadi Delicacies
+            Delicious Pure Vegetarian Cuisine
           </h2>
           <p className="text-brand-dark/70 font-sans text-sm md:text-base mt-4">
-            Select a category below to explore our luxury heritage options, slow-cooked using traditional charcoal methods.
+            Select a category below to explore our delicious Indian vegetarian options, freshly prepared with quality ingredients.
           </p>
         </div>
 
@@ -353,8 +322,8 @@ export const Home: React.FC = () => {
                 />
               </div>
               <div className="bg-brand-dark text-[#F6EFE3] p-6 rounded-2xl text-center">
-                <p className="font-display text-4xl font-extrabold text-brand-gold">4.8</p>
-                <p className="text-[10px] font-sans font-bold uppercase tracking-widest mt-1 text-[#F6EFE3]/50">Google Rating</p>
+                <p className="font-display text-4xl font-extrabold text-brand-gold">4.1</p>
+                <p className="text-[10px] font-sans font-bold uppercase tracking-widest mt-1 text-[#F6EFE3]/50">63 Google Reviews</p>
               </div>
             </div>
           </div>
@@ -367,12 +336,12 @@ export const Home: React.FC = () => {
             </h2>
             
             <p className="text-brand-dark/70 font-sans text-sm md:text-base mt-6 leading-relaxed">
-              Ustaads (ఉస్తాద్స్) stands as Hyderabad's premium destination for heritage luxury dining. Located on the serene street of Moinabad, our kitchens are designed to execute age-old Nawabi techniques of dum cooking, bringing legendary flavors back to modern plates.
+              Balaji Santosh Family Dhaba (బాలాజీ సంతోష్ ఫ్యామిలీ ధాబా) is Moinabad's premier destination for pure vegetarian family dining. Located conveniently in Aziz Nagar, Himayat Sagar Road, Moinabad, we serve rich Paneer dishes, delicious soups, vegetarian biryanis, and hot tandoori flatbreads.
             </p>
 
             <div className="border-l-4 border-brand-accent pl-6 my-8 py-2">
               <p className="font-display italic text-brand-dark/85 text-base">
-                // TODO: Client will provide brand story. We will expand this paragraph to incorporate their personal journey, history, and chef's profiles.
+                "Awesome food taste... near Chilkur and peaceful atmosphere, 10 min from Outer Ring Road (ORR). Come and taste!"
               </p>
             </div>
 
@@ -409,7 +378,18 @@ export const Home: React.FC = () => {
 
         {/* Infinite Auto-Scrolling Marquee (Left to Right) */}
         <div className="relative w-full flex overflow-x-hidden py-4">
-          <div className="flex space-x-6 shrink-0 animate-marquee-right hover:pause">
+          <motion.div 
+            className="flex space-x-6 shrink-0 w-max"
+            animate={{ x: ["-50%", "0%"] }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 45,
+                ease: "linear",
+              },
+            }}
+          >
 
             {/* Duplicated array to allow seamless scrolling wrap-around loop */}
             {[...GALLERY_PHOTOS, ...GALLERY_PHOTOS].map((photo, index) => (
@@ -430,7 +410,7 @@ export const Home: React.FC = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -450,7 +430,18 @@ export const Home: React.FC = () => {
 
         {/* Infinite Auto-Scrolling Marquee (Right to Left) */}
         <div className="relative w-full flex overflow-x-hidden py-6">
-          <div className="flex space-x-8 shrink-0 animate-marquee-left">
+          <motion.div 
+            className="flex space-x-8 shrink-0 w-max"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 40,
+                ease: "linear",
+              },
+            }}
+          >
 
             {/* Duplicated array to allow seamless scrolling loop */}
             {[...TESTIMONIALS, ...TESTIMONIALS].map((testimonial, index) => (
@@ -460,7 +451,7 @@ export const Home: React.FC = () => {
                 onClick={() => setSelectedReview(testimonial)}
               />
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Review Lightbox Portal Modal */}
@@ -480,9 +471,9 @@ export const Home: React.FC = () => {
           
           {/* Map Contact Card */}
           <div className="lg:col-span-5 flex flex-col justify-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-accent">Visit Ustaads</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-brand-accent">Visit Us</span>
             <h2 className="font-display text-3xl md:text-4xl font-extrabold text-brand-dark mt-3">
-              We Welcomes You at Moinabad
+              Welcome to Balaji Santosh Family Dhaba
             </h2>
 
             <div className="space-y-6 mt-8">
@@ -494,7 +485,7 @@ export const Home: React.FC = () => {
                 <div>
                   <h4 className="font-bold text-brand-dark uppercase text-sm tracking-wider">Address</h4>
                   <p className="text-sm text-brand-dark/70 mt-1">
-                    Plot 54, Street Number 1, Moinabad, Hyderabad, Telangana 500075
+                    4-15/2part, Aziz Nagar, Himayat Sagar Rd, Moinabad, Telangana 500075
                   </p>
                 </div>
               </div>
@@ -506,8 +497,8 @@ export const Home: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-brand-dark uppercase text-sm tracking-wider">Phone</h4>
-                  <a href="tel:+919063878223" className="text-sm text-brand-dark hover:text-brand-accent font-semibold transition-colors mt-1 block">
-                    090638 78223
+                  <a href="tel:+919849498681" className="text-sm text-brand-dark hover:text-brand-accent font-semibold transition-colors mt-1 block">
+                    098494 98681
                   </a>
                 </div>
               </div>
@@ -520,7 +511,7 @@ export const Home: React.FC = () => {
                 <div>
                   <h4 className="font-bold text-brand-dark uppercase text-sm tracking-wider">Operating Hours</h4>
                   <p className="text-sm text-brand-dark/70 mt-1">
-                    Daily Operation: 12:00 PM – 11:00 PM
+                    Daily Operation: 11:00 AM – 11:00 PM
                   </p>
                 </div>
               </div>
@@ -528,7 +519,7 @@ export const Home: React.FC = () => {
 
             <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 mt-8">
               <a 
-                href="https://www.google.com/maps/search/?api=1&query=Ustaads+Best+Hyderabadi+Restaurant+Caterers+Moinabad+Hyderabad" 
+                href="https://www.google.com/maps/search/?api=1&query=Balaji+Santosh+Family+Dhaba+Aziz+Nagar+Himayat+Sagar+Rd+Moinabad+Telangana" 
                 target="_blank" 
                 rel="noreferrer"
                 className="bg-brand-accent hover:bg-brand-accent/90 text-brand-bg px-6 py-3.5 rounded-full font-bold uppercase tracking-wider text-xs shadow-md transition-colors text-center"
@@ -536,7 +527,7 @@ export const Home: React.FC = () => {
                 Google Maps Navigation
               </a>
               <a 
-                href="https://www.google.com/maps/search/?api=1&query=Ustaads+Best+Hyderabadi+Restaurant+Caterers+Moinabad+Hyderabad" 
+                href="https://www.google.com/maps/search/?api=1&query=Balaji+Santosh+Family+Dhaba+Aziz+Nagar+Himayat+Sagar+Rd+Moinabad+Telangana" 
                 target="_blank" 
                 rel="noreferrer"
                 className="border border-brand-dark/20 hover:border-brand-accent text-brand-dark hover:text-brand-accent px-6 py-3.5 rounded-full font-bold uppercase tracking-wider text-xs transition-colors text-center"
@@ -548,10 +539,10 @@ export const Home: React.FC = () => {
 
           {/* Embedded Styled Map simulation */}
           <div className="lg:col-span-7 h-[450px] w-full rounded-2xl overflow-hidden border border-brand-dark/15 shadow-lg relative bg-brand-dark/5">
-            {/* Real embedded Google Map iframe for Plot 54 Street 1 Moinabad Hyderabad */}
+            {/* Real embedded Google Map iframe for Balaji Santosh Family Dhaba */}
             <iframe 
-              title="Ustaads Moinabad Location Map"
-              src="https://maps.google.com/maps?q=Ustaads%20Best%20Hyderabadi%20Restaurant%20Caterers%20Moinabad%20Hyderabad&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+              title="Balaji Santosh Family Dhaba Location Map"
+              src="https://maps.google.com/maps?q=Balaji%20Santosh%20Family%20Dhaba%20Aziz%20Nagar%20Himayat%20Sagar%20Rd%20Moinabad%20Telangana&t=&z=15&ie=UTF8&iwloc=&output=embed" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 

@@ -37,7 +37,7 @@ export const ContactPage: React.FC = () => {
             <div>
               <span className="text-[10px] font-bold uppercase tracking-widest text-brand-gold">Direct Lines</span>
               <h2 className="font-display text-2xl md:text-3xl font-extrabold mt-3 mb-8">
-                Connect With Ustaads
+                Connect With Balaji Santosh
               </h2>
 
               <div className="space-y-6">
@@ -45,7 +45,7 @@ export const ContactPage: React.FC = () => {
                   <MapPin className="text-brand-gold mt-1 shrink-0" size={20} />
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-widest text-[#F6EFE3]/50">Address</h4>
-                    <p className="text-sm mt-1">Plot 54, Street Number 1, Moinabad, Hyderabad, Telangana 500075</p>
+                    <p className="text-sm mt-1">4-15/2part, Aziz Nagar, Himayat Sagar Rd, Moinabad, Telangana 500075</p>
                   </div>
                 </div>
 
@@ -53,7 +53,7 @@ export const ContactPage: React.FC = () => {
                   <Phone className="text-brand-gold mt-1 shrink-0" size={18} />
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-widest text-[#F6EFE3]/50">Phone</h4>
-                    <a href="tel:+919063878223" className="text-sm font-semibold hover:text-brand-gold mt-1 block">090638 78223</a>
+                    <a href="tel:+919849498681" className="text-sm font-semibold hover:text-brand-gold mt-1 block">098494 98681</a>
                   </div>
                 </div>
 
@@ -61,7 +61,7 @@ export const ContactPage: React.FC = () => {
                   <Clock className="text-brand-gold mt-1 shrink-0" size={18} />
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-widest text-[#F6EFE3]/50">Hours of Operation</h4>
-                    <p className="text-sm mt-1">Daily: 12:00 PM – 11:00 PM</p>
+                    <p className="text-sm mt-1">Daily: 11:00 AM – 11:00 PM</p>
                   </div>
                 </div>
 
@@ -69,7 +69,7 @@ export const ContactPage: React.FC = () => {
                   <Mail className="text-brand-gold mt-1 shrink-0" size={18} />
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-widest text-[#F6EFE3]/50">Email Support</h4>
-                    <p className="text-sm mt-1">contact@ustaadsrestaurant.com</p>
+                    <p className="text-sm mt-1">contact@balajisantoshdhaba.com</p>
                   </div>
                 </div>
               </div>
@@ -77,7 +77,7 @@ export const ContactPage: React.FC = () => {
 
             <div className="pt-8 border-t border-[#F6EFE3]/15">
               <h4 className="text-xs font-bold uppercase tracking-widest text-brand-gold">Google Rating</h4>
-              <p className="font-display text-2xl font-black text-[#F6EFE3] mt-1">4.8 ★ <span className="text-xs font-sans font-normal text-[#F6EFE3]/50">(1,110+ reviews)</span></p>
+              <p className="font-display text-2xl font-black text-[#F6EFE3] mt-1">4.1 ★ <span className="text-xs font-sans font-normal text-[#F6EFE3]/50">(63 reviews)</span></p>
             </div>
           </div>
 
@@ -88,7 +88,7 @@ export const ContactPage: React.FC = () => {
                 <CheckCircle2 size={56} className="text-green-600 mb-4" />
                 <h3 className="font-display text-2xl font-bold text-brand-dark">Message Received Successfully!</h3>
                 <p className="text-sm font-sans text-brand-dark/75 mt-2 max-w-sm">
-                  Thank you for contacting Ustaads. Our events coordinator will contact you shortly.
+                  Thank you for contacting Balaji Santosh Family Dhaba. We will get back to you shortly.
                 </p>
               </div>
             ) : (
@@ -170,8 +170,8 @@ export const ContactPage: React.FC = () => {
         {/* Embedded styled Map */}
         <div className="h-[400px] w-full rounded-2xl overflow-hidden border border-brand-dark/10 shadow-md">
           <iframe 
-            title="Ustaads Location Map"
-            src="https://maps.google.com/maps?q=Ustaads%20Best%20Hyderabadi%20Restaurant%20Caterers%20Moinabad%20Hyderabad&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            title="Balaji Santosh Family Dhaba Location Map"
+            src="https://maps.google.com/maps?q=Balaji%20Santosh%20Family%20Dhaba%20Aziz%20Nagar%20Himayat%20Sagar%20Rd%20Moinabad%20Telangana&t=&z=15&ie=UTF8&iwloc=&output=embed" 
             width="100%" 
             height="100%" 
             style={{ border: 0 }} 
