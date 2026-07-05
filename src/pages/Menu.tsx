@@ -112,7 +112,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ dishName, onClose }) => {
           </a>
 
           <p className="text-center text-[10px] text-brand-dark/40 font-sans pt-1">
-            Balaji Santosh Family Dhaba · Moinabad · +91 98494 98681
+            Balaji Chilkur Family Dhaba · Moinabad · +91 98494 98681
           </p>
         </div>
       </motion.div>
@@ -128,9 +128,9 @@ const OrderTrigger: React.FC<{ dishName: string }> = ({ dishName }) => {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="relative px-6 py-3 bg-brand-accent text-[#F6EFE3] font-bold text-xs tracking-widest uppercase rounded-full border border-brand-accent/50 shadow-[0_4px_0_0_#903008] hover:translate-y-[2px] hover:shadow-[0_2px_0_0_#903008] active:translate-y-[4px] active:shadow-[0_0px_0_0_#903008] transition-all flex items-center gap-2 select-none"
+        className="relative px-3 py-1.5 bg-brand-accent text-[#F6EFE3] font-bold text-[9px] tracking-widest uppercase rounded-full border border-brand-accent/50 shadow-[0_3px_0_0_#903008] hover:translate-y-[2px] hover:shadow-[0_1px_0_0_#903008] active:translate-y-[3px] active:shadow-[0_0px_0_0_#903008] transition-all flex items-center gap-1 select-none"
       >
-        <ShoppingBag size={14} /> Order Online
+        <ShoppingBag size={10} /> Order
       </button>
       <AnimatePresence>
         {open && <OrderModal dishName={dishName} onClose={() => setOpen(false)} />}
@@ -239,7 +239,7 @@ const CategoryRow: React.FC<CategoryRowProps> = ({ category, dishes, onDishClick
   const scrollRef = useRef<HTMLDivElement>(null);
   const scroll = (dir: 'left' | 'right') => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: dir === 'right' ? 340 : -340, behavior: 'smooth' });
+      scrollRef.current.scrollBy({ left: dir === 'right' ? 240 : -240, behavior: 'smooth' });
     }
   };
 
@@ -301,9 +301,9 @@ const CategoryRow: React.FC<CategoryRowProps> = ({ category, dishes, onDishClick
         {dishes.map((dish) => (
           <motion.div
             key={dish.id}
-            whileHover={{ y: -6, scale: 1.02 }}
+            whileHover={{ y: -4, scale: 1.02 }}
             transition={{ duration: 0.25 }}
-            className="shrink-0 w-64 md:w-72 bg-[#F6EFE3] rounded-2xl overflow-hidden border border-brand-dark/10 shadow-sm hover:shadow-xl transition-shadow cursor-pointer group"
+            className="shrink-0 w-44 md:w-52 bg-[#F6EFE3] rounded-xl overflow-hidden border border-brand-dark/10 shadow-sm hover:shadow-xl transition-shadow cursor-pointer group"
             style={{ scrollSnapAlign: 'start' }}
             onClick={() => onDishClick(dish)}
           >
@@ -316,47 +316,47 @@ const CategoryRow: React.FC<CategoryRowProps> = ({ category, dishes, onDishClick
                 loading="lazy"
               />
               {/* Overlay: price badge bottom-left */}
-              <div className="absolute bottom-3 left-3 bg-brand-dark/80 text-[#F6EFE3] text-sm font-bold font-display px-3 py-1 rounded-full backdrop-blur-sm">
+              <div className="absolute bottom-2 left-2 bg-brand-dark/80 text-[#F6EFE3] text-[10px] font-bold font-display px-2 py-0.5 rounded-full backdrop-blur-sm">
                 {dish.price}
               </div>
               {/* Rating badge bottom-right */}
               {dish.rating && (
-                <div className="absolute bottom-3 right-3 flex items-center gap-1 bg-brand-gold text-white text-xs font-bold px-2 py-1 rounded-full">
-                  <Star size={10} className="fill-current" />
+                <div className="absolute bottom-2 right-2 flex items-center gap-0.5 bg-brand-gold text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full">
+                  <Star size={8} className="fill-current" />
                   {dish.rating}
                 </div>
               )}
               {/* Veg/Non-veg dot top-right */}
               {dish.isVegetarian !== undefined && (
-                <div className={`absolute top-3 right-3 w-5 h-5 flex items-center justify-center rounded-md border-2 bg-white ${dish.isVegetarian ? 'border-green-600' : 'border-red-600'}`}>
-                  <span className={`w-2 h-2 rounded-full ${dish.isVegetarian ? 'bg-green-600' : 'bg-red-600'}`} />
+                <div className={`absolute top-2 right-2 w-4 h-4 flex items-center justify-center rounded-md border-2 bg-white ${dish.isVegetarian ? 'border-green-600' : 'border-red-600'}`}>
+                  <span className={`w-1.5 h-1.5 rounded-full ${dish.isVegetarian ? 'bg-green-600' : 'bg-red-600'}`} />
                 </div>
               )}
               {/* Popular top-left */}
               {dish.isPopular && (
-                <span className="absolute top-3 left-3 flex items-center gap-1 bg-brand-accent text-[#F6EFE3] text-[9px] font-bold uppercase tracking-wider px-2 py-1 rounded-full shadow">
-                  <Flame size={9} className="fill-current" /> Popular
+                <span className="absolute top-2 left-2 flex items-center gap-0.5 bg-brand-accent text-[#F6EFE3] text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full shadow">
+                  <Flame size={7} className="fill-current" /> Popular
                 </span>
               )}
               {/* Hover overlay – click to view */}
               <div className="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/30 transition-colors duration-300 flex items-center justify-center">
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#F6EFE3] text-xs font-bold uppercase tracking-widest bg-brand-accent/90 px-4 py-2 rounded-full">
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#F6EFE3] text-[9px] font-bold uppercase tracking-widest bg-brand-accent/90 px-3 py-1.5 rounded-full">
                   View Details
                 </span>
               </div>
             </div>
 
             {/* Card body */}
-            <div className="p-4">
-              <h3 className="font-display text-base font-extrabold text-brand-dark group-hover:text-brand-accent transition-colors duration-300 leading-tight line-clamp-1">
+            <div className="p-2.5">
+              <h3 className="font-display text-xs font-extrabold text-brand-dark group-hover:text-brand-accent transition-colors duration-300 leading-tight line-clamp-1">
                 {dish.name}
               </h3>
               {dish.teluguName && (
-                <p className="font-telugu text-xs text-brand-accent/75 mt-0.5 line-clamp-1">{dish.teluguName}</p>
+                <p className="font-telugu text-[10px] text-brand-accent/75 mt-0.5 line-clamp-1">{dish.teluguName}</p>
               )}
-              <p className="text-xs font-sans text-brand-dark/60 leading-relaxed mt-2 line-clamp-2">{dish.description}</p>
+              <p className="text-[10px] font-sans text-brand-dark/60 leading-relaxed mt-1 line-clamp-2">{dish.description}</p>
               {/* Order button – stops propagation so lightbox doesn't open */}
-              <div className="mt-3 pt-3 border-t border-brand-dark/5" onClick={(e) => e.stopPropagation()}>
+              <div className="mt-2 pt-2 border-t border-brand-dark/5" onClick={(e) => e.stopPropagation()}>
                 <OrderTrigger dishName={dish.name} />
               </div>
             </div>
@@ -374,6 +374,8 @@ export const Menu: React.FC = () => {
   const [selectedDish, setSelectedDish] = useState<Dish | null>(null);
   const [searchParams] = useSearchParams();
   const targetCategory = searchParams.get('category') || '';
+
+  const [showAllHeadings, setShowAllHeadings] = useState(false);
 
   // Scroll to highlighted category on load
   useEffect(() => {
@@ -429,7 +431,7 @@ export const Menu: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold uppercase tracking-widest text-brand-accent">Interactive Gastronomy</span>
           <h1 className="font-display text-4xl md:text-6xl font-black text-brand-dark mt-3">
-            The Balaji Santosh Menu
+            The Balaji Chilkur Menu
           </h1>
           <p className="text-brand-dark/70 font-sans text-sm md:text-base mt-4">
             Scroll through our premium pure vegetarian selection. Click any dish to view full details and order online.
@@ -437,7 +439,7 @@ export const Menu: React.FC = () => {
         </div>
 
         {/* Search & Filters */}
-        <div className="glass-panel p-5 rounded-2xl border border-brand-dark/10 shadow-sm mb-14 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div className="glass-panel p-5 rounded-2xl border border-brand-dark/10 shadow-sm mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="relative flex-grow max-w-md">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-brand-dark/40" size={18} />
             <input
@@ -450,8 +452,13 @@ export const Menu: React.FC = () => {
           </div>
 
           <div className="flex items-center space-x-3 shrink-0">
-            <SlidersHorizontal size={16} className="text-brand-dark/50" />
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-dark/65 mr-2">Filter</span>
+            <button
+              onClick={() => setShowAllHeadings(!showAllHeadings)}
+              className={`flex items-center space-x-2 text-brand-dark/65 hover:text-brand-accent transition-colors py-1.5 px-3 rounded-full hover:bg-brand-dark/5 select-none ${showAllHeadings ? 'text-brand-accent bg-brand-dark/5' : ''}`}
+            >
+              <SlidersHorizontal size={16} />
+              <span className="text-xs font-bold uppercase tracking-wider">Filter</span>
+            </button>
             <div className="flex bg-brand-dark/5 p-1 rounded-full border border-brand-dark/5">
               {(['All', 'Veg', 'Non-Veg'] as const).map((filter) => (
                 <button
@@ -469,6 +476,41 @@ export const Menu: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Headings / Category Quick Jump Panel */}
+        <AnimatePresence>
+          {showAllHeadings && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="overflow-hidden mb-10"
+            >
+              <div className="glass-panel p-6 rounded-2xl border border-brand-dark/10 shadow-sm bg-[#FAF6EE] flex flex-wrap gap-2.5">
+                <p className="w-full text-xs font-bold uppercase tracking-widest text-brand-dark/50 mb-2">
+                  Jump to Section:
+                </p>
+                {Array.from(grouped.keys()).map((category) => {
+                  const sectionId = `cat-${category.replace(/\s+/g, '-').toLowerCase()}`;
+                  return (
+                    <button
+                      key={category}
+                      onClick={() => {
+                        const el = document.getElementById(sectionId);
+                        if (el) {
+                          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }}
+                      className="px-3.5 py-2 bg-brand-bg hover:bg-brand-accent hover:text-[#F6EFE3] text-brand-dark border border-brand-dark/10 hover:border-brand-accent rounded-xl text-xs font-bold transition-all shadow-sm"
+                    >
+                      {category}
+                    </button>
+                  );
+                })}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Category Rows */}
         {grouped.size > 0 ? (

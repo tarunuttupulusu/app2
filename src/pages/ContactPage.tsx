@@ -37,7 +37,7 @@ export const ContactPage: React.FC = () => {
             <div>
               <span className="text-[10px] font-bold uppercase tracking-widest text-brand-gold">Direct Lines</span>
               <h2 className="font-display text-2xl md:text-3xl font-extrabold mt-3 mb-8">
-                Connect With Balaji Santosh
+                Connect With Balaji Chilkur
               </h2>
 
               <div className="space-y-6">
@@ -88,7 +88,7 @@ export const ContactPage: React.FC = () => {
                 <CheckCircle2 size={56} className="text-green-600 mb-4" />
                 <h3 className="font-display text-2xl font-bold text-brand-dark">Message Received Successfully!</h3>
                 <p className="text-sm font-sans text-brand-dark/75 mt-2 max-w-sm">
-                  Thank you for contacting Balaji Santosh Family Dhaba. We will get back to you shortly.
+                  Thank you for contacting Balaji Chilkur Family Dhaba. We will get back to you shortly.
                 </p>
               </div>
             ) : (

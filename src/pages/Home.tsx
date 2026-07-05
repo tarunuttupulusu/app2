@@ -9,12 +9,10 @@ import {
   ArrowRight, 
   Star, 
   X, 
-  Quote,
-  ChevronLeft,
-  ChevronRight
+  Quote
 } from 'lucide-react';
 import { DishCard } from '../components/DishCard';
-import { SIGNATURE_DISHES, SPECIAL_OFFERS, GALLERY_PHOTOS, TESTIMONIALS } from '../utils/menuData';
+import { SIGNATURE_DISHES, GALLERY_PHOTOS, TESTIMONIALS } from '../utils/menuData';
 
 // ─── Circular Review Card ────────────────────────────────────────────────────────
 interface CircularReviewCardProps {
@@ -146,19 +144,22 @@ const ReviewModal: React.FC<ReviewModalProps> = ({ testimonial, onClose }) => {
 
 export const Home: React.FC = () => {
   // Featured category index
-  const [activeCategory, setActiveCategory] = useState('Soups & Starters');
+  const [activeCategory, setActiveCategory] = useState('Starters');
   // Selected review for details modal
   const [selectedReview, setSelectedReview] = useState<typeof TESTIMONIALS[0] | null>(null);
 
-  const categories = ['Soups & Starters', 'Main Course', 'Biryanis & Rice', 'Rotis & Breads'];
-  const filteredDishes = SIGNATURE_DISHES.filter(dish => dish.category === activeCategory);
+  const categories = ['Starters', 'Veg Curries', 'Biryani', 'Naan'];
+  const filteredDishes = SIGNATURE_DISHES.filter(dish => dish.category === activeCategory).slice(0, 4);
 
-  const reviewScrollRef = React.useRef<HTMLDivElement>(null);
-  const scrollReviews = (dir: 'left' | 'right') => {
-    if (reviewScrollRef.current) {
-      reviewScrollRef.current.scrollBy({ left: dir === 'right' ? 340 : -340, behavior: 'smooth' });
-    }
-  };
+  const specialOffers = SIGNATURE_DISHES.filter(dish => dish.category === 'Combo Family Pack').slice(0, 2).map((dish, idx) => ({
+    id: dish.id,
+    title: dish.name,
+    description: dish.description,
+    price: dish.price,
+    image: dish.image,
+    badge: idx === 0 ? 'Best Seller' : 'Value Platter',
+    cta: 'Order Combo'
+  }));
 
   return (
     <div className="relative bg-brand-bg noise-overlay min-h-screen">
@@ -187,21 +188,6 @@ export const Home: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-brand-dark/40 to-brand-dark" />
         </div>
 
-        {/* BSD Logo — perfectly centered */}
-        <div className="relative z-20 flex items-center justify-center w-full h-full">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col items-center justify-center"
-          >
-            <img
-              src="/bsd-logo.png"
-              alt="Balaji Santosh Dhaba Logo"
-              className="w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80 object-contain drop-shadow-[0_0_40px_rgba(212,175,55,0.5)]"
-            />
-          </motion.div>
-        </div>
       </section>
 
       {/* 2. FEATURED DISHES SECTION */}
@@ -216,27 +202,12 @@ export const Home: React.FC = () => {
           </p>
         </div>
 
-        {/* Filter categories tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-                activeCategory === cat 
-                  ? 'bg-brand-accent text-[#F6EFE3] shadow-md shadow-brand-accent/20' 
-                  : 'bg-brand-dark/5 text-brand-dark hover:bg-brand-dark/10'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+
 
         {/* Grid display of signature dishes */}
         <motion.div 
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           <AnimatePresence mode="popLayout">
             {filteredDishes.map((dish) => (
@@ -253,6 +224,17 @@ export const Home: React.FC = () => {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {/* Explore Full Menu Button */}
+        <div className="flex justify-center mt-12">
+          <Link 
+            to="/menu" 
+            className="bg-brand-accent hover:bg-brand-accent/90 text-[#F6EFE3] px-8 py-4 rounded-full font-bold uppercase tracking-wider shadow-lg shadow-brand-accent/25 transition-all text-sm flex items-center justify-center space-x-2"
+          >
+            <span>Explore Full Menu</span>
+            <ArrowRight size={16} />
+          </Link>
+        </div>
       </section>
 
 
@@ -266,7 +248,7 @@ export const Home: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {SPECIAL_OFFERS.map((offer) => (
+          {specialOffers.map((offer) => (
             <div 
               key={offer.id}
               className="relative rounded-2xl overflow-hidden min-h-[300px] flex items-center bg-brand-dark text-[#F6EFE3] group"
@@ -311,54 +293,34 @@ export const Home: React.FC = () => {
 
       {/* 5. ABOUT SECTION */}
       <section className="py-24 bg-[#ECE3D4]/50 border-y border-brand-dark/5 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Images Grid */}
-          <div className="lg:col-span-6 grid grid-cols-12 gap-4">
-            <div className="col-span-8 rounded-2xl overflow-hidden aspect-[4/5] shadow-lg">
-              <img 
-                src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=800&q=80" 
-                alt="Chef dum cooking" 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              />
-            </div>
-            <div className="col-span-4 flex flex-col justify-end">
-              <div className="rounded-2xl overflow-hidden aspect-square shadow-lg mb-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=400&q=80" 
-                  alt="Fine dining spices" 
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <div className="bg-brand-dark text-[#F6EFE3] p-6 rounded-2xl text-center">
-                <p className="font-display text-4xl font-extrabold text-brand-gold">4.1</p>
-                <p className="text-[10px] font-sans font-bold uppercase tracking-widest mt-1 text-[#F6EFE3]/50">63 Google Reviews</p>
-              </div>
-            </div>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Simple Image Column */}
+          <div className="rounded-3xl overflow-hidden aspect-[4/3] shadow-xl relative group">
+            <img 
+              src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80" 
+              alt="Balaji Chilkur Family Dhaba Dining Setup" 
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
           </div>
 
-          {/* Description */}
-          <div className="lg:col-span-6 flex flex-col justify-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-accent">Our Heritage</span>
+          {/* Simplified Description Column */}
+          <div className="flex flex-col justify-center">
+            <span className="text-xs font-bold uppercase tracking-widest text-brand-accent">About Us</span>
             <h2 className="font-display text-3xl md:text-5xl font-black text-brand-dark mt-3 leading-tight">
-              A Legacy of Culinary Royalty
+              Pure Vegetarian <br className="hidden sm:inline"/> Indian Hospitality
             </h2>
             
-            <p className="text-brand-dark/70 font-sans text-sm md:text-base mt-6 leading-relaxed">
-              Balaji Santosh Family Dhaba (బాలాజీ సంతోష్ ఫ్యామిలీ ధాబా) is Moinabad's premier destination for pure vegetarian family dining. Located conveniently in Aziz Nagar, Himayat Sagar Road, Moinabad, we serve rich Paneer dishes, delicious soups, vegetarian biryanis, and hot tandoori flatbreads.
+            <p className="text-brand-dark/75 font-sans text-sm md:text-base mt-6 leading-relaxed">
+              Welcome to Balaji Chilkur Family Dhaba, Moinabad's premier destination for authentic, pure vegetarian family dining. Located conveniently in Aziz Nagar near Chilkur, we are loved for our rich Paneer dishes, fresh tandoori flatbreads, and authentic vegetarian biryanis. We source fresh farm ingredients daily to serve delicious, hygienic meals in a peaceful family environment.
             </p>
 
-            <div className="border-l-4 border-brand-accent pl-6 my-8 py-2">
-              <p className="font-display italic text-brand-dark/85 text-base">
-                "Awesome food taste... near Chilkur and peaceful atmosphere, 10 min from Outer Ring Road (ORR). Come and taste!"
-              </p>
-            </div>
-
-            <div>
+            <div className="mt-8">
               <Link 
                 to="/about" 
                 className="inline-flex items-center space-x-2 text-sm font-bold uppercase tracking-widest text-brand-accent hover:text-brand-dark transition-colors duration-300"
               >
-                <span>Read Our Full Story</span>
+                <span>Our Story</span>
                 <ArrowRight size={16} />
               </Link>
             </div>
@@ -424,51 +386,42 @@ export const Home: React.FC = () => {
 
       {/* 7. TESTIMONIALS SECTION */}
       <section id="reviews" className="py-24 bg-[#ECE3D4]/50 border-t border-brand-dark/5 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="text-left max-w-3xl">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16">
+          <div className="text-center max-w-3xl mx-auto">
             <span className="text-xs font-bold uppercase tracking-widest text-brand-accent">Verified Feedback</span>
             <h2 className="font-display text-3xl md:text-5xl font-black text-brand-dark mt-3">
               Words From Our Patrons
             </h2>
             <p className="text-xs text-brand-dark/50 uppercase tracking-widest font-semibold mt-2">
-              Swipe left/right or click any card to read full feedback
+              Click any review card to read the full patron feedback
             </p>
-          </div>
-
-          {/* Navigation Scroll Buttons */}
-          <div className="flex gap-3">
-            <button
-              onClick={() => scrollReviews('left')}
-              className="p-3 rounded-full border border-brand-dark/15 hover:border-brand-accent hover:bg-brand-accent hover:text-[#F6EFE3] text-brand-dark transition-all duration-200 cursor-pointer"
-              aria-label="Scroll reviews left"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <button
-              onClick={() => scrollReviews('right')}
-              className="p-3 rounded-full border border-brand-dark/15 hover:border-brand-accent hover:bg-brand-accent hover:text-[#F6EFE3] text-brand-dark transition-all duration-200 cursor-pointer"
-              aria-label="Scroll reviews right"
-            >
-              <ChevronRight size={20} />
-            </button>
           </div>
         </div>
 
-        {/* Swipeable & Scrollable Row (Left & Right) */}
-        <div 
-          ref={reviewScrollRef}
-          className="w-full overflow-x-auto no-scrollbar py-6 scroll-smooth snap-x snap-mandatory"
-        >
-          <div className="flex space-x-8 px-6 md:px-12 w-max">
-            {TESTIMONIALS.map((testimonial) => (
-              <div key={testimonial.id} className="snap-center shrink-0">
-                <CircularReviewCard 
-                  testimonial={testimonial}
-                  onClick={() => setSelectedReview(testimonial)}
-                />
-              </div>
+        {/* Infinite Auto-Scrolling Marquee (Right to Left) */}
+        <div className="relative w-full flex overflow-x-hidden py-6">
+          <motion.div 
+            className="flex space-x-8 shrink-0 w-max"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 40,
+                ease: "linear",
+              },
+            }}
+          >
+
+            {/* Duplicated array to allow seamless scrolling loop */}
+            {[...TESTIMONIALS, ...TESTIMONIALS].map((testimonial, index) => (
+              <CircularReviewCard 
+                key={`${testimonial.id}-${index}`}
+                testimonial={testimonial}
+                onClick={() => setSelectedReview(testimonial)}
+              />
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Review Lightbox Portal Modal */}
@@ -490,7 +443,7 @@ export const Home: React.FC = () => {
           <div className="lg:col-span-5 flex flex-col justify-center">
             <span className="text-xs font-bold uppercase tracking-widest text-brand-accent">Visit Us</span>
             <h2 className="font-display text-3xl md:text-4xl font-extrabold text-brand-dark mt-3">
-              Welcome to Balaji Santosh Family Dhaba
+              Welcome to Balaji Chilkur Family Dhaba
             </h2>
 
             <div className="space-y-6 mt-8">

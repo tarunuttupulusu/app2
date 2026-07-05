@@ -15,12 +15,14 @@ export const Footer: React.FC = () => {
         
         {/* Brand Info */}
         <div className="flex flex-col space-y-6">
-          <Link to="/" className="flex flex-col items-start leading-none group">
-            <span className="font-telugu text-2xl text-brand-bg font-bold group-hover:text-brand-accent transition-colors duration-300">
-              బాలాజీ సంతోష్
-            </span>
-            <span className="font-display tracking-widest text-[9px] uppercase font-semibold text-brand-gold ml-0.5 mt-1">
-              BALAJI SANTOSH
+          <Link to="/" className="flex items-center space-x-2 md:space-x-3 group">
+            <img 
+              src="/bsd-logo.png" 
+              alt="Balaji Chilkur Family Dhaba Logo" 
+              className="w-8 h-8 md:w-10 md:h-10 rounded-full object-contain bg-black/25 border border-brand-gold/30 shadow-md group-hover:border-brand-gold transition-colors"
+            />
+            <span className="font-display text-sm md:text-base font-bold tracking-wider uppercase text-brand-bg group-hover:text-brand-gold transition-colors duration-300">
+              BALAJI CHILKUR FAMILY DHABA
             </span>
           </Link>
           <p className="font-sans text-sm leading-relaxed text-[#F6EFE3]/60">
@@ -107,7 +109,7 @@ export const Footer: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-[#F6EFE3]/10 flex flex-col sm:flex-row justify-between items-center text-xs text-[#F6EFE3]/40 font-sans">
-        <p>© {currentYear} Balaji Santosh Family Dhaba. All Rights Reserved.</p>
+        <p>© {currentYear} Balaji Chilkur Family Dhaba. All Rights Reserved.</p>
         <p className="mt-2 sm:mt-0">Designed and Developed to Perfection.</p>
       </div>
     </footer>

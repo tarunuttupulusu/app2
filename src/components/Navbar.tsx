@@ -54,13 +54,18 @@ export const Navbar: React.FC = () => {
             : 'bg-black/20 backdrop-blur-sm py-6'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <div className="w-full px-6 flex justify-between items-center">
           {/* Logo / Brand Name */}
-          <Link to="/" className="flex flex-col items-start leading-none group">
-            <span className={`font-display text-base md:text-lg font-bold tracking-widest uppercase transition-colors duration-300 group-hover:text-brand-gold drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)] ${
+          <Link to="/" className="flex items-center space-x-2 md:space-x-3 group">
+            <img 
+              src="/bsd-logo.png" 
+              alt="Balaji Chilkur Family Dhaba Logo" 
+              className="w-16 h-16 md:w-[72px] md:h-[72px] object-contain"
+            />
+            <span className={`font-display text-xs sm:text-sm md:text-base font-bold tracking-wider uppercase transition-colors duration-300 group-hover:text-brand-gold drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)] ${
               isScrolled ? 'text-brand-dark' : 'text-white'
             }`}>
-              BALAJI SANTOSH
+              BALAJI CHILKUR FAMILY DHABA
             </span>
           </Link>
 

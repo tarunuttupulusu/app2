@@ -29,7 +29,7 @@ export const AboutPage: React.FC = () => {
             </h2>
             <div className="space-y-6 text-sm md:text-base text-brand-dark/75 font-sans leading-relaxed">
               <p>
-                Founded on the values of traditional Indian hospitality, Balaji Santosh Family Dhaba was established to serve high-quality, pure vegetarian cuisine to families and visitors in Aziz Nagar, Himayat Sagar Road, and the Chilkur locality.
+                Founded on the values of traditional Indian hospitality, Balaji Chilkur Family Dhaba was established to serve high-quality, pure vegetarian cuisine to families and visitors in Aziz Nagar, Himayat Sagar Road, and the Chilkur locality.
               </p>
               <p>
                 We believe that great vegetarian food starts with freshness. From our signature Paneer Butter Masala to our hot, tandoor-baked Butter Naan, we prepare our dishes daily using premium ingredients and direct farm-sourced vegetables.
