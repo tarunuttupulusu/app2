@@ -275,7 +275,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Soya chaap marinated with yogurt and spices, roasted to perfection in a clay tandoor.',
     price: '₹350',
     category: 'Starters',
-    image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=600&q=80',
+    image: '/tandoori-soya-chaap.jpg',
     rating: 4.8,
     isVegetarian: true
   },
@@ -612,7 +612,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Soft cottage cheese cubes cooked in a thick, seasoned spinach puree.',
     price: '₹310',
     category: 'Veg Curries',
-    image: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80',
+    image: '/palak-paneer.jpg',
     rating: 4.8,
     isVegetarian: true
   },
@@ -623,7 +623,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Spicy and tangy paneer curry cooked with mixed pickle spices and bell peppers.',
     price: '₹300',
     category: 'Veg Curries',
-    image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80',
+    image: '/paneer-chatpata.jpg',
     rating: 4.6,
     isVegetarian: true
   },
@@ -634,7 +634,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Rich and buttery paneer cooked in a sweet, velvety tomato sauce with fresh cream.',
     price: '₹320',
     category: 'Veg Curries',
-    image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80',
+    image: '/paneer-makhanwala.jpg',
     rating: 4.8,
     isVegetarian: true
   },
@@ -645,7 +645,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Cottage cheese chunks cooked with double amount of onions in spiced gravy.',
     price: '₹310',
     category: 'Veg Curries',
-    image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80',
+    image: '/paneer-do-pyaza.jpg',
     rating: 4.6,
     isVegetarian: true
   },
@@ -656,7 +656,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Scrambled paneer stir-fried with green chillies, onions, tomatoes, and dry spices.',
     price: '₹320',
     category: 'Veg Curries',
-    image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80',
+    image: '/paneer-bhurji.jpg',
     rating: 4.7,
     isVegetarian: true
   },
@@ -667,7 +667,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Patiala style sweet paneer curry rolled in fried papadum, served in cashew gravy.',
     price: '₹310',
     category: 'Veg Curries',
-    image: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80',
+    image: '/paneer-patiala-sweet.jpg',
     rating: 4.7,
     isVegetarian: true
   },
@@ -678,7 +678,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Tandoor-roasted spiced paneer tikka pieces cooked in rich, tikka gravy.',
     price: '₹320',
     category: 'Veg Curries',
-    image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80',
+    image: '/paneer-tikka-masala.jpg',
     rating: 4.8,
     isVegetarian: true
   },
@@ -689,7 +689,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Paneer cubes tempered with whole dry red chillies, mustard seeds, and curry leaves.',
     price: '₹320',
     category: 'Veg Curries',
-    image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80',
+    image: '/tadka-paneer.jpg',
     rating: 4.6,
     isVegetarian: true
   },
@@ -1082,7 +1082,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Traditional leavened flatbread freshly baked in tandoor clay-oven.',
     price: '₹50',
     category: 'Naan',
-    image: 'https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=600&q=80',
+    image: '/plain-naan.jpg',
     rating: 4.5,
     isVegetarian: true
   },
@@ -1093,7 +1093,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Leavened clay-oven flatbread brushed with pure melted butter.',
     price: '₹55',
     category: 'Naan',
-    image: 'https://images.unsplash.com/photo-1601050690597-df056fb4ce78?auto=format&fit=crop&w=600&q=80',
+    image: '/butter-naan.jpg',
     rating: 4.9,
     isVegetarian: true
   },
@@ -1104,7 +1104,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Fresh tandoori naan topped with fresh chopped coriander leaves.',
     price: '₹55',
     category: 'Naan',
-    image: 'https://images.unsplash.com/photo-1601050690597-df056fb4ce78?auto=format&fit=crop&w=600&q=80',
+    image: '/kothmir-naan.jpg',
     rating: 4.6,
     isVegetarian: true
   },
@@ -1115,7 +1115,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Fresh tandoori naan with mint leaves and cow butter glaze.',
     price: '₹55',
     category: 'Naan',
-    image: 'https://images.unsplash.com/photo-1601050690597-df056fb4ce78?auto=format&fit=crop&w=600&q=80',
+    image: '/pudina-butter-naan.jpg',
     rating: 4.7,
     isVegetarian: true
   },
@@ -1181,7 +1181,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Tandoori naan stuffed with a mix of potato mash, paneer, and local spices.',
     price: '₹75',
     category: 'Naan',
-    image: 'https://images.unsplash.com/photo-1601050690597-df056fb4ce78?auto=format&fit=crop&w=600&q=80',
+    image: '/stuffed-naan.jpg',
     rating: 4.5,
     isVegetarian: true
   },
@@ -1352,7 +1352,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Wok-tossed fried rice with tiny cubes of spiced paneer and chopped greens.',
     price: '₹270',
     category: 'Fried Rice',
-    image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80',
+    image: '/paneer-fried-rice.jpg',
     rating: 4.7,
     isVegetarian: true
   },
@@ -1398,7 +1398,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Fragrant basmati rice cooked with whole cardamoms, cinnamon, and mixed vegetables.',
     price: '₹290 / ₹210',
     category: 'Pulao',
-    image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80',
+    image: '/veg-pulao.jpg',
     rating: 4.6,
     isVegetarian: true
   },
@@ -1457,6 +1457,17 @@ export const SIGNATURE_DISHES: Dish[] = [
     rating: 4.7,
     isVegetarian: true
   },
+  {
+    id: 'pull-7',
+    name: 'Mushroom Pulao',
+    teluguName: 'మష్రూమ్ పులావ్',
+    description: 'Fragrant and savory basmati rice cooked with fresh tender mushrooms, cashews, and aromatic spices.',
+    price: '₹310',
+    category: 'Pulao',
+    image: '/mushroom-pulao.jpg',
+    rating: 4.8,
+    isVegetarian: true
+  },
 
   // =================== BIRYANI (7 items) ===================
   {
@@ -1466,7 +1477,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Richly spiced, layered, and aromatic basmati rice cooked on slow steam with fresh veggies.',
     price: '₹290 / ₹220',
     category: 'Biryani',
-    image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80',
+    image: '/veg-biryani.jpg',
     rating: 4.8,
     isVegetarian: true
   },
@@ -1521,7 +1532,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Layered aromatic basmati rice cooked with seasoned mushrooms and spices.',
     price: '₹320',
     category: 'Biryani',
-    image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80',
+    image: '/mushroom-biryani.jpg',
     rating: 4.7,
     isVegetarian: true
   },
@@ -1567,7 +1578,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Crispy roasted papad topped with chopped onions, tomatoes, green chillies, and chat masala.',
     price: '₹45',
     category: 'Papad',
-    image: 'https://images.unsplash.com/photo-1601050690597-df056fb4ce78?auto=format&fit=crop&w=600&q=80',
+    image: '/masala-papad.jpg',
     rating: 4.7,
     isVegetarian: true
   },
@@ -1580,6 +1591,17 @@ export const SIGNATURE_DISHES: Dish[] = [
     category: 'Papad',
     image: 'https://images.unsplash.com/photo-1601050690597-df056fb4ce78?auto=format&fit=crop&w=600&q=80',
     rating: 4.6,
+    isVegetarian: true
+  },
+  {
+    id: 'pap-5',
+    name: 'Fry Masala Papad',
+    teluguName: 'ఫ్రైడ్ మసాలా అప్పడం',
+    description: 'Crispy deep-fried papad topped with chopped onions, tomatoes, coriander leaves, and fine spice powder.',
+    price: '₹50',
+    category: 'Papad',
+    image: '/fry-masala-papad.jpg',
+    rating: 4.7,
     isVegetarian: true
   },
 
@@ -1602,7 +1624,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Spiced fresh curd mixed with chopped crunchy red onions and mint.',
     price: '₹60',
     category: 'Raita',
-    image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80',
+    image: '/onion-raita.jpg',
     rating: 4.3,
     isVegetarian: true
   },
@@ -1648,7 +1670,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Thick, creamy, sweet yogurt beverage served chilled in traditional style.',
     price: '₹80 / ₹100',
     category: 'Soft Drinks',
-    image: 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=600&q=80',
+    image: '/sweet-lassi.jpg',
     rating: 4.8,
     isVegetarian: true
   },
@@ -1692,7 +1714,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Zesty refreshing sweet soda drink with fresh lemon juice.',
     price: '₹70',
     category: 'Soft Drinks',
-    image: 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=600&q=80',
+    image: '/fresh-lime-soda.jpg',
     rating: 4.7,
     isVegetarian: true
   },
@@ -1703,7 +1725,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Salted refreshing soda drink with fresh lemon juice.',
     price: '₹70',
     category: 'Soft Drinks',
-    image: 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=600&q=80',
+    image: '/fresh-lime-soda.jpg',
     rating: 4.5,
     isVegetarian: true
   },
@@ -1727,7 +1749,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Jumbo pack of aromatic mushroom biryani, ideal for family take-away.',
     price: '₹725',
     category: 'Jumbo Family Pack',
-    image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80',
+    image: '/mushroom-biryani-jumbo.jpg',
     rating: 4.7,
     isVegetarian: true
   },
@@ -1738,7 +1760,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Special layered vegetable dum biryani in family size pack, packed with rich flavor.',
     price: '₹725',
     category: 'Jumbo Family Pack',
-    image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80',
+    image: '/veg-biryani.jpg',
     rating: 4.8,
     isVegetarian: true
   },

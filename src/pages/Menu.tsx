@@ -16,6 +16,10 @@ interface OrderModalProps {
   onClose: () => void;
 }
 const OrderModal: React.FC<OrderModalProps> = ({ dishName, onClose }) => {
+  const swiggyItemUrl = `https://www.swiggy.com/search?query=${encodeURIComponent('Balaji Chilkur Family Dhaba ' + dishName)}`;
+  const zomatoItemUrl = `https://www.zomato.com/hyderabad/restaurants?q=${encodeURIComponent('Balaji Santosh Family Dhaba Moinabad ' + dishName)}`;
+  const whatsappUrl = `https://wa.me/919849498681?text=${encodeURIComponent(`Hello, I would like to order "${dishName}" from Balaji Chilkur Family Dhaba.`)}`;
+
   return createPortal(
     <div className="fixed inset-0 z-[1100] flex items-center justify-center p-4 md:p-8">
       {/* backdrop */}
@@ -61,7 +65,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ dishName, onClose }) => {
           <div className="grid grid-cols-2 gap-4">
             {/* Swiggy */}
             <a
-              href={SWIGGY_URL}
+              href={swiggyItemUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex flex-col items-center gap-3 bg-[#FC8019] hover:bg-[#e8710f] text-white px-4 py-6 rounded-2xl font-bold transition-all duration-250 hover:scale-[1.03] active:scale-[0.97] shadow-lg shadow-orange-300/30"
@@ -78,7 +82,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ dishName, onClose }) => {
 
             {/* Zomato */}
             <a
-              href={ZOMATO_URL}
+              href={zomatoItemUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex flex-col items-center gap-3 bg-[#E23744] hover:bg-[#cb2f3c] text-white px-4 py-6 rounded-2xl font-bold transition-all duration-250 hover:scale-[1.03] active:scale-[0.97] shadow-lg shadow-red-300/30"
@@ -96,7 +100,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ dishName, onClose }) => {
 
           {/* WhatsApp — full width */}
           <a
-            href="https://wa.me/919849498681"
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-4 bg-[#25D366] hover:bg-[#1eb85a] text-white px-6 py-4 rounded-2xl font-bold transition-all duration-250 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-green-300/30 w-full"
