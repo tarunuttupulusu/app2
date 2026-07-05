@@ -110,7 +110,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Fried vegetable dumplings simmered in a rich, spicy, and tangy soy-garlic gravy.',
     price: '₹340',
     category: 'Starters',
-    image: 'https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=600&q=80',
+    image: '/wet-manchuria.jpg',
     rating: 4.6,
     isVegetarian: true
   },
@@ -121,7 +121,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Crispy fried vegetable balls tossed with green chillies, garlic, and soy sauce.',
     price: '₹300 / ₹240',
     category: 'Starters',
-    image: 'https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=600&q=80',
+    image: '/veg-manchuria-dry.jpg',
     rating: 4.8,
     isVegetarian: true
   },
@@ -132,7 +132,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Crispy cauliflower florets tossed in a flavorful Indo-Chinese garlic soy sauce.',
     price: '₹300',
     category: 'Starters',
-    image: 'https://images.unsplash.com/photo-1601050690597-df056fb4ce78?auto=format&fit=crop&w=600&q=80',
+    image: '/gobi-manchuria.jpg',
     rating: 4.7,
     isVegetarian: true
   },
@@ -143,7 +143,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Marinated paneer strips fried and tossed in a creamy, yogurt-based green chili sauce.',
     price: '₹310',
     category: 'Starters',
-    image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=600&q=80',
+    image: '/paneer-majestic.jpg',
     rating: 4.9,
     isVegetarian: true
   },
@@ -154,7 +154,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Veg dumplings tossed in spicy, bold Schezwan sauce with bell peppers and onions.',
     price: '₹320',
     category: 'Starters',
-    image: 'https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=600&q=80',
+    image: '/schezwan-manchuria.jpg',
     rating: 4.5,
     isVegetarian: true
   },
