@@ -425,8 +425,8 @@ export const Home: React.FC = () => {
           {/* Simple Image Column */}
           <div className="rounded-3xl overflow-hidden aspect-[4/3] shadow-xl relative group">
             <img 
-              src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80" 
-              alt="Balaji Chilkur Family Dhaba Dining Setup" 
+              src="/dhaba_restaurant.png" 
+              alt="Balaji Chilkur Family Dhaba Restaurant Facade" 
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
