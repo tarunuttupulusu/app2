@@ -250,7 +250,7 @@ const CategoryRow: React.FC<CategoryRowProps> = ({ category, dishes, onDishClick
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`mb-16 scroll-mt-28 rounded-3xl transition-all duration-500 ${
+      className={`mb-16 scroll-mt-36 rounded-3xl transition-all duration-500 ${
         isHighlighted
           ? 'ring-2 ring-brand-gold/60 bg-brand-gold/5 p-5 -mx-5'
           : 'p-0'
