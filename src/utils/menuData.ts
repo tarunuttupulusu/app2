@@ -231,7 +231,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Crispy battered fresh mushrooms tossed in a classic Indo-Chinese Manchurian gravy.',
     price: '₹320',
     category: 'Starters',
-    image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=600&q=80',
+    image: '/mushroom-manchuria.jpg',
     rating: 4.5,
     isVegetarian: true
   },
@@ -242,7 +242,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Fresh mushrooms wok-tossed with green chillies, onion, and capsicum in chilli sauce.',
     price: '₹320',
     category: 'Starters',
-    image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=600&q=80',
+    image: '/chilly-mushroom.jpg',
     rating: 4.5,
     isVegetarian: true
   },
@@ -253,7 +253,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Golden fried sweet corn kernels tossed with buttery spices and tangy seasoning.',
     price: '₹320',
     category: 'Starters',
-    image: 'https://images.unsplash.com/photo-1601050690597-df056fb4ce78?auto=format&fit=crop&w=600&q=80',
+    image: '/crispy-corn.jpg',
     rating: 4.7,
     isVegetarian: true
   },
@@ -264,7 +264,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Marinated paneer chunks skewered and slow-roasted in a clay tandoor oven until charred.',
     price: '₹350',
     category: 'Starters',
-    image: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=600&q=80',
+    image: '/tandoori-paneer-tikka.jpg',
     rating: 4.9,
     isVegetarian: true
   },
