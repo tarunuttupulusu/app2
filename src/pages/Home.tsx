@@ -148,6 +148,8 @@ export const Home: React.FC = () => {
   const [selectedReview, setSelectedReview] = useState<typeof TESTIMONIALS[0] | null>(null);
 
   const galleryScrollRef = useRef<HTMLDivElement>(null);
+  const reviewsScrollRef = useRef<HTMLDivElement>(null);
+  const reviewsDragRef = useRef({ isDown: false, startX: 0, scrollLeft: 0, hasDragged: false });
 
   useEffect(() => {
     const el = galleryScrollRef.current;
@@ -199,6 +201,63 @@ export const Home: React.FC = () => {
     const onTouchEnd = () => {
       isDown = false;
     };
+
+    el.addEventListener('mousedown', onMouseDown);
+    el.addEventListener('mouseleave', onMouseLeave);
+    el.addEventListener('mouseup', onMouseUp);
+    el.addEventListener('mousemove', onMouseMove);
+    el.addEventListener('touchstart', onTouchStart);
+    el.addEventListener('touchend', onTouchEnd);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      el.removeEventListener('mousedown', onMouseDown);
+      el.removeEventListener('mouseleave', onMouseLeave);
+      el.removeEventListener('mouseup', onMouseUp);
+      el.removeEventListener('mousemove', onMouseMove);
+      el.removeEventListener('touchstart', onTouchStart);
+      el.removeEventListener('touchend', onTouchEnd);
+    };
+  }, []);
+
+  // Reviews auto-scroll + drag-to-scroll
+  useEffect(() => {
+    const el = reviewsScrollRef.current;
+    const drag = reviewsDragRef.current;
+    if (!el) return;
+
+    let animationFrameId: number;
+
+    const autoScroll = () => {
+      if (!drag.isDown && el) {
+        el.scrollLeft += 0.5;
+        if (el.scrollLeft >= el.scrollWidth / 2) {
+          el.scrollLeft = 0;
+        }
+      }
+      animationFrameId = requestAnimationFrame(autoScroll);
+    };
+
+    animationFrameId = requestAnimationFrame(autoScroll);
+
+    const onMouseDown = (e: MouseEvent) => {
+      drag.isDown = true;
+      drag.hasDragged = false;
+      drag.startX = e.pageX - el.offsetLeft;
+      drag.scrollLeft = el.scrollLeft;
+    };
+    const onMouseLeave = () => { drag.isDown = false; };
+    const onMouseUp = () => { drag.isDown = false; };
+    const onMouseMove = (e: MouseEvent) => {
+      if (!drag.isDown) return;
+      e.preventDefault();
+      const x = e.pageX - el.offsetLeft;
+      const walk = (x - drag.startX) * 1.5;
+      if (Math.abs(walk) > 5) drag.hasDragged = true;
+      el.scrollLeft = drag.scrollLeft - walk;
+    };
+    const onTouchStart = () => { drag.isDown = true; drag.hasDragged = false; };
+    const onTouchEnd = () => { drag.isDown = false; };
 
     el.addEventListener('mousedown', onMouseDown);
     el.addEventListener('mouseleave', onMouseLeave);
@@ -459,30 +518,26 @@ export const Home: React.FC = () => {
           </div>
         </div>
 
-        {/* Infinite Auto-Scrolling Marquee (Right to Left) */}
-        <div className="relative w-full flex overflow-x-hidden py-6">
-          <motion.div 
-            className="flex space-x-8 shrink-0 w-max"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 40,
-                ease: "linear",
-              },
-            }}
-          >
-
+        {/* Draggable & Scrollable Auto-Scrolling Reviews */}
+        <div
+          ref={reviewsScrollRef}
+          className="relative w-full flex overflow-x-auto py-6 no-scrollbar cursor-grab active:cursor-grabbing select-none"
+          style={{ scrollSnapType: 'none', WebkitOverflowScrolling: 'touch' }}
+        >
+          <div className="flex space-x-8 shrink-0">
             {/* Duplicated array to allow seamless scrolling loop */}
             {[...TESTIMONIALS, ...TESTIMONIALS].map((testimonial, index) => (
               <CircularReviewCard 
                 key={`${testimonial.id}-${index}`}
                 testimonial={testimonial}
-                onClick={() => setSelectedReview(testimonial)}
+                onClick={() => {
+                  if (!reviewsDragRef.current.hasDragged) {
+                    setSelectedReview(testimonial);
+                  }
+                }}
               />
             ))}
-          </motion.div>
+          </div>
         </div>
 
         {/* Review Lightbox Portal Modal */}
