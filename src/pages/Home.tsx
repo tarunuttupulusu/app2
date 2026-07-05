@@ -143,12 +143,10 @@ const ReviewModal: React.FC<ReviewModalProps> = ({ testimonial, onClose }) => {
 };
 
 export const Home: React.FC = () => {
-  // Featured category index
-  const [activeCategory, setActiveCategory] = useState('Starters');
+  const activeCategory = 'Starters';
   // Selected review for details modal
   const [selectedReview, setSelectedReview] = useState<typeof TESTIMONIALS[0] | null>(null);
 
-  const categories = ['Starters', 'Veg Curries', 'Biryani', 'Naan'];
   const filteredDishes = SIGNATURE_DISHES.filter(dish => dish.category === activeCategory).slice(0, 4);
 
   const specialOffers = SIGNATURE_DISHES.filter(dish => dish.category === 'Combo Family Pack').slice(0, 2).map((dish, idx) => ({
