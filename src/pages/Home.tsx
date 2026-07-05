@@ -309,11 +309,11 @@ export const Home: React.FC = () => {
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
                        w-[177.78vh] h-[100vh]
                        min-w-full min-h-full
-                       opacity-40 scale-110"
+                       opacity-90 scale-110"
           />
 
-          {/* Dark gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-brand-dark/40 to-brand-dark" />
+          {/* Very subtle dark gradient overlay for branding integration without losing video clarity */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/10" />
         </div>
 
       </section>
@@ -425,8 +425,8 @@ export const Home: React.FC = () => {
           {/* Simple Image Column */}
           <div className="rounded-3xl overflow-hidden aspect-[4/3] shadow-xl relative group">
             <img 
-              src="/dhaba_restaurant.png" 
-              alt="Balaji Chilkur Family Dhaba Restaurant Facade" 
+              src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80" 
+              alt="Balaji Chilkur Family Dhaba Dining Setup" 
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
