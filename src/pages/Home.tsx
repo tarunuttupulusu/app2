@@ -9,7 +9,9 @@ import {
   ArrowRight, 
   Star, 
   X, 
-  Quote
+  Quote,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import { DishCard } from '../components/DishCard';
 import { SIGNATURE_DISHES, SPECIAL_OFFERS, GALLERY_PHOTOS, TESTIMONIALS } from '../utils/menuData';
@@ -151,32 +153,38 @@ export const Home: React.FC = () => {
   const categories = ['Soups & Starters', 'Main Course', 'Biryanis & Rice', 'Rotis & Breads'];
   const filteredDishes = SIGNATURE_DISHES.filter(dish => dish.category === activeCategory);
 
+  const reviewScrollRef = React.useRef<HTMLDivElement>(null);
+  const scrollReviews = (dir: 'left' | 'right') => {
+    if (reviewScrollRef.current) {
+      reviewScrollRef.current.scrollBy({ left: dir === 'right' ? 340 : -340, behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="relative bg-brand-bg noise-overlay min-h-screen">
       
       {/* 1. HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-dark">
-        {/* Cinematic Backdrop (Video for mobile, Image for desktop) */}
-        <div className="absolute inset-0 z-0">
-          {/* Desktop Background Image */}
-          <img 
-            src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1920&q=80" 
-            alt="Balaji Santosh Family Dhaba Dining Background" 
-            className="hidden md:block w-full h-full object-cover opacity-35 filter brightness-75 contrast-125"
+        {/* Full-Screen Background Video — all devices */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          {/* Fallback background colour while video loads */}
+          <div className="absolute inset-0 bg-brand-dark" />
+
+          {/* YouTube Short — covers the entire viewport */}
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/VRKIM1pytu8?autoplay=1&mute=1&loop=1&playlist=VRKIM1pytu8&playsinline=1&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0&vq=hd1080"
+            title="Balaji Santosh Family Dhaba Background Video"
+            allow="autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            style={{ border: 'none', pointerEvents: 'none' }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                       w-[177.78vh] h-[100vh]
+                       min-w-full min-h-full
+                       opacity-40 scale-110"
           />
 
-          {/* Mobile Background Video (YouTube Short) */}
-          <div className="block md:hidden absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-            <iframe 
-              src="https://www.youtube.com/embed/VRKIM1pytu8?autoplay=1&mute=1&loop=1&playlist=VRKIM1pytu8&playsinline=1&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0"
-              title="Balaji Santosh Family Dhaba Background Video"
-              className="absolute top-1/2 left-1/2 w-[100vw] h-[177.78vw] min-h-[100vh] min-w-[56.25vh] -translate-x-1/2 -translate-y-1/2 opacity-35 filter brightness-75 contrast-125"
-              allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
-              style={{ border: 'none' }}
-            />
-          </div>
-
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-brand-dark/50 to-brand-dark" />
+          {/* Dark gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-brand-dark/40 to-brand-dark" />
         </div>
 
         {/* BSD Logo — perfectly centered */}
@@ -416,42 +424,51 @@ export const Home: React.FC = () => {
 
       {/* 7. TESTIMONIALS SECTION */}
       <section id="reviews" className="py-24 bg-[#ECE3D4]/50 border-t border-brand-dark/5 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16">
-          <div className="text-center max-w-3xl mx-auto">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="text-left max-w-3xl">
             <span className="text-xs font-bold uppercase tracking-widest text-brand-accent">Verified Feedback</span>
             <h2 className="font-display text-3xl md:text-5xl font-black text-brand-dark mt-3">
               Words From Our Patrons
             </h2>
             <p className="text-xs text-brand-dark/50 uppercase tracking-widest font-semibold mt-2">
-              Click any review card to read the full patron feedback
+              Swipe left/right or click any card to read full feedback
             </p>
+          </div>
+
+          {/* Navigation Scroll Buttons */}
+          <div className="flex gap-3">
+            <button
+              onClick={() => scrollReviews('left')}
+              className="p-3 rounded-full border border-brand-dark/15 hover:border-brand-accent hover:bg-brand-accent hover:text-[#F6EFE3] text-brand-dark transition-all duration-200 cursor-pointer"
+              aria-label="Scroll reviews left"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              onClick={() => scrollReviews('right')}
+              className="p-3 rounded-full border border-brand-dark/15 hover:border-brand-accent hover:bg-brand-accent hover:text-[#F6EFE3] text-brand-dark transition-all duration-200 cursor-pointer"
+              aria-label="Scroll reviews right"
+            >
+              <ChevronRight size={20} />
+            </button>
           </div>
         </div>
 
-        {/* Infinite Auto-Scrolling Marquee (Right to Left) */}
-        <div className="relative w-full flex overflow-x-hidden py-6">
-          <motion.div 
-            className="flex space-x-8 shrink-0 w-max"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 40,
-                ease: "linear",
-              },
-            }}
-          >
-
-            {/* Duplicated array to allow seamless scrolling loop */}
-            {[...TESTIMONIALS, ...TESTIMONIALS].map((testimonial, index) => (
-              <CircularReviewCard 
-                key={`${testimonial.id}-${index}`}
-                testimonial={testimonial}
-                onClick={() => setSelectedReview(testimonial)}
-              />
+        {/* Swipeable & Scrollable Row (Left & Right) */}
+        <div 
+          ref={reviewScrollRef}
+          className="w-full overflow-x-auto no-scrollbar py-6 scroll-smooth snap-x snap-mandatory"
+        >
+          <div className="flex space-x-8 px-6 md:px-12 w-max">
+            {TESTIMONIALS.map((testimonial) => (
+              <div key={testimonial.id} className="snap-center shrink-0">
+                <CircularReviewCard 
+                  testimonial={testimonial}
+                  onClick={() => setSelectedReview(testimonial)}
+                />
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         {/* Review Lightbox Portal Modal */}
