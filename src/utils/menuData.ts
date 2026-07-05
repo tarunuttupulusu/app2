@@ -198,7 +198,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Crispy baby corn tossed in a creamy, spicy yogurt-based masala with curry leaves.',
     price: '₹310',
     category: 'Starters',
-    image: 'https://images.unsplash.com/photo-1601050690597-df056fb4ce78?auto=format&fit=crop&w=600&q=80',
+    image: '/baby-corn-majestic.jpg',
     rating: 4.6,
     isVegetarian: true
   },
