@@ -1743,7 +1743,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     isVegetarian: true
   },
 
-  // =================== COMBO FAMILY PACK (1 item) ===================
+  // =================== COMBO FAMILY PACK (2 items) ===================
   {
     id: 'combo-1',
     name: 'Veg Manchuria + Paneer Butter Masala + 8 Butter Rotis + Half Veg Biryani',
@@ -1753,6 +1753,17 @@ export const SIGNATURE_DISHES: Dish[] = [
     category: 'Combo Family Pack',
     image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80',
     rating: 4.9,
+    isVegetarian: true
+  },
+  {
+    id: 'combo-2',
+    name: 'Paneer 65 + Paneer Tikka Masala + 8 Butter Naan + Veg Biryani',
+    teluguName: 'కాంబో ప్యాక్ 2',
+    description: 'Special combo pack containing crispy Paneer 65, rich Paneer Tikka Masala, 8pcs of fresh Butter Naan, and an aromatic Veg Biryani.',
+    price: '₹949',
+    category: 'Combo Family Pack',
+    image: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=800&q=80',
+    rating: 4.8,
     isVegetarian: true
   }
 
