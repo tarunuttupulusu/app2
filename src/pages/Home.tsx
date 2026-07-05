@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -146,6 +146,77 @@ export const Home: React.FC = () => {
   const activeCategory = 'Starters';
   // Selected review for details modal
   const [selectedReview, setSelectedReview] = useState<typeof TESTIMONIALS[0] | null>(null);
+
+  const galleryScrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = galleryScrollRef.current;
+    if (!el) return;
+
+    let animationFrameId: number;
+    let startX: number;
+    let scrollLeft: number;
+    let isDown = false;
+
+    const autoScroll = () => {
+      if (!isDown && el) {
+        el.scrollLeft += 0.6; // slow scroll speed
+        // If we scrolled past half the width (loop-around point), reset to 0
+        if (el.scrollLeft >= el.scrollWidth / 2) {
+          el.scrollLeft = 0;
+        }
+      }
+      animationFrameId = requestAnimationFrame(autoScroll);
+    };
+
+    animationFrameId = requestAnimationFrame(autoScroll);
+
+    const onMouseDown = (e: MouseEvent) => {
+      isDown = true;
+      startX = e.pageX - el.offsetLeft;
+      scrollLeft = el.scrollLeft;
+    };
+
+    const onMouseLeave = () => {
+      isDown = false;
+    };
+
+    const onMouseUp = () => {
+      isDown = false;
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - el.offsetLeft;
+      const walk = (x - startX) * 1.5; // drag speed
+      el.scrollLeft = scrollLeft - walk;
+    };
+
+    const onTouchStart = () => {
+      isDown = true;
+    };
+    const onTouchEnd = () => {
+      isDown = false;
+    };
+
+    el.addEventListener('mousedown', onMouseDown);
+    el.addEventListener('mouseleave', onMouseLeave);
+    el.addEventListener('mouseup', onMouseUp);
+    el.addEventListener('mousemove', onMouseMove);
+    el.addEventListener('touchstart', onTouchStart);
+    el.addEventListener('touchend', onTouchEnd);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      el.removeEventListener('mousedown', onMouseDown);
+      el.removeEventListener('mouseleave', onMouseLeave);
+      el.removeEventListener('mouseup', onMouseUp);
+      el.removeEventListener('mousemove', onMouseMove);
+      el.removeEventListener('touchstart', onTouchStart);
+      el.removeEventListener('touchend', onTouchEnd);
+    };
+  }, []);
 
   const filteredDishes = SIGNATURE_DISHES.filter(dish => dish.category === activeCategory).slice(0, 4);
 
@@ -344,26 +415,18 @@ export const Home: React.FC = () => {
           </Link>
         </div>
 
-        {/* Infinite Auto-Scrolling Marquee (Left to Right) */}
-        <div className="relative w-full flex overflow-x-hidden py-4">
-          <motion.div 
-            className="flex space-x-6 shrink-0 w-max"
-            animate={{ x: ["-50%", "0%"] }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 45,
-                ease: "linear",
-              },
-            }}
-          >
-
+        {/* Draggable & Scrollable Auto-Scrolling Container */}
+        <div 
+          ref={galleryScrollRef}
+          className="relative w-full flex overflow-x-auto py-4 no-scrollbar cursor-grab active:cursor-grabbing select-none"
+          style={{ scrollSnapType: 'none', WebkitOverflowScrolling: 'touch' }}
+        >
+          <div className="flex space-x-6 shrink-0">
             {/* Duplicated array to allow seamless scrolling wrap-around loop */}
             {[...GALLERY_PHOTOS, ...GALLERY_PHOTOS].map((photo, index) => (
               <div 
                 key={`${photo.id}-${index}`}
-                className="relative overflow-hidden rounded-2xl bg-brand-dark group aspect-square w-72 md:w-80 shrink-0 shadow-md"
+                className="relative overflow-hidden rounded-2xl bg-brand-dark group aspect-square w-72 md:w-80 shrink-0 shadow-md pointer-events-none"
               >
                 <img 
                   src={photo.src} 
@@ -378,7 +441,7 @@ export const Home: React.FC = () => {
                 </div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
