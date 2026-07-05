@@ -165,7 +165,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Fried cottage cheese cubes tossed in a rich, dark soy-garlic sauce with spring onions.',
     price: '₹320',
     category: 'Starters',
-    image: 'https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?auto=format&fit=crop&w=600&q=80',
+    image: '/paneer-manchuria.jpg',
     rating: 4.7,
     isVegetarian: true
   },
@@ -176,7 +176,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Tender soya chaap pieces deep-fried and tossed in a spicy Indo-Chinese Manchurian sauce.',
     price: '₹320',
     category: 'Starters',
-    image: 'https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=600&q=80',
+    image: '/soya-chaap-manchuria.jpg',
     rating: 4.6,
     isVegetarian: true
   },
@@ -187,7 +187,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Crispy baby corn battered and tossed in a dark, tangy Manchurian soy-garlic sauce.',
     price: '₹320',
     category: 'Starters',
-    image: 'https://images.unsplash.com/photo-1601050690597-df056fb4ce78?auto=format&fit=crop&w=600&q=80',
+    image: '/baby-corn-manchuria.jpg',
     rating: 4.5,
     isVegetarian: true
   },
@@ -209,7 +209,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Paneer cubes stir-fried with capsicum, onion, and green chillies in a tangy soy sauce.',
     price: '₹310 / ₹250',
     category: 'Starters',
-    image: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=600&q=80',
+    image: '/chilly-paneer.jpg',
     rating: 4.8,
     isVegetarian: true
   },
@@ -220,7 +220,7 @@ export const SIGNATURE_DISHES: Dish[] = [
     description: 'Baby corn tossed with bell peppers and green chillies in a spicy Indo-Chinese sauce.',
     price: '₹320',
     category: 'Starters',
-    image: 'https://images.unsplash.com/photo-1601050690597-df056fb4ce78?auto=format&fit=crop&w=600&q=80',
+    image: '/chilly-baby-corn.jpg',
     rating: 4.4,
     isVegetarian: true
   },
